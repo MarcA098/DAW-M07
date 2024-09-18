@@ -17,6 +17,7 @@ while ($contador >= 0) {
     $contador--;
 }
 
+
 // 4. Muestra la progresión numérica desde la primera variable a la segunda con un bucle do/while
 echo "</br>Progresión de $var1 a $var2:\n";
 do {
