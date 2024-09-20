@@ -1,6 +1,6 @@
 <?php
 // Generar un número aleatorio entre 0 y 20
-function generarNumeroFinal(): int { //Creación de función
+function AleatorioHasta100(): int { //Creación de función
 // Declarar variables necesarias
     $finalNum = 0;
     $par = 0;
@@ -26,7 +26,7 @@ function generarNumeroFinal(): int { //Creación de función
     return $finalNum;
 }
 // Llamada a la función
-$finalNum = generarNumeroFinal();
+$finalNum = AleatorioHasta100();
 
 
 
