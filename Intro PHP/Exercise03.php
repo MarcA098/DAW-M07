@@ -26,6 +26,6 @@ do {
 } while ($var1 <= $var2);
 
 // a. Si la segunda variable es más pequeña, sólo imprimir una vez el valor de la primera variable
-if ($var2 < 12) { // Cambia 12 al valor actual de $var1 si es necesario
+if ($var2 < 12) {
     echo "</br>Valor de la primera variable: $var1\n";
 }
