@@ -53,3 +53,57 @@ foreach ($array as $value) {
     echo "letter {$cont}º: $value<br>";
     $cont++;
 }
+
+echo"<br>6)<br>";
+
+// Creación del array asociativo
+
+$notas = ['Miguel' => 5, 'Luís' => 7, 'Marta' => 10, 'Isabel' => 8, 'Aitor' => 4, 'Pepe' => 1];
+
+// Método para ordenar un array asociativo en orden descendente manteniendo las claves
+arsort( $notas );
+
+// Recorrer el array
+foreach ($notas as $key => $value) {
+    echo "$key: $value<br>";
+}
+
+echo "<br>7)<br>";
+
+$nValue = 0;
+$cont = 0;
+
+foreach ($notas as $key => $value) {
+    $nValue += $value;
+    $cont++;
+}
+
+// Forzar la conversión a float para obtener decimales
+$media = $nValue / $cont;
+
+// Función para cambiar el formato numérico a 2 decimales
+echo "La media de los alumnos es:" . " " . number_format($media,2);
+echo "<br>Los alumnos por encima de la media son:<br>";
+
+// Mostrar alumnos por encima de la media
+foreach ($notas as $key => $value){
+    if ($value > $media) {
+        echo "$key<br>";
+    }
+}
+
+echo "<br>8)<br>";
+
+// Variables para guardar mejor nota y alumno correspondiente
+$mayorNota = 0;
+$mejorAlumno = "";
+
+// Bucle con una condición en la que evaluamos la mayor nota y la guardamos
+foreach ($notas as $key => $value){
+    if ($value > $mayorNota) {
+        $mayorNota = $value;
+        $mejorAlumno = $key;
+    }
+}
+
+echo "El mejor alumno es $mejorAlumno con la nota de $mayorNota";
