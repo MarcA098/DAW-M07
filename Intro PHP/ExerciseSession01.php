@@ -6,7 +6,7 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtener datos del formulario
     $product = $_POST['product'];
-    $quantity = (int)$_POST['quantity'];
+    $quantity = (int)$_POST['quantity']; //casteamos a int ya que los números son string en html
     $action = $_POST['action'];
 
     // Lógica para actualizar el inventario
@@ -24,6 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Redirigir de vuelta a index.php
-    header('Location: index.php');
+    header('Location: vista01.php');
     exit();
 }
