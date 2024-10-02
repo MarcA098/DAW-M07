@@ -1,15 +1,21 @@
 <?php
 session_start();
 
-// Verificar si ya existe la variable de sesion
-if (!isset($_SESSION['inventory'])) {
-    $_SESSION['inventory'] = ['milk' => 3, 'softDrink' => 0]; // Array asociativo del inventario con producto => cantidad
+// Establecer el nombre del trabajador por defecto si no existe
+if (!isset($_SESSION['workerName'])) {
+    $_SESSION['workerName'] = 'Pere';
 }
 
-// Variables
-$workerName = "Pere";
-$milkCount = $_SESSION['inventory']['milk'];
-$softDrinkCount = $_SESSION['inventory']['softDrink'];
+$workerName = $_SESSION['workerName'];
+
+// Inicializar el inventario si no existe para el trabajador por defecto
+if (!isset($_SESSION['inventory'][$workerName])) {
+    $_SESSION['inventory'][$workerName] = ['milk' => 3, 'softDrink' => 0];
+}
+
+// Variables del inventario
+$milkCount = $_SESSION['inventory'][$workerName]['milk'];
+$softDrinkCount = $_SESSION['inventory'][$workerName]['softDrink'];
 
 $error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
 unset($_SESSION['error']);
@@ -24,7 +30,7 @@ if ($error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Supermarket Management</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -117,7 +123,7 @@ if ($error) {
     </style>
 </head>
 <body>
-    <h1>Supermarket management</h1>
+    <h1>Supermarket Management</h1>
     <form action="ExerciseSession01.php" method="post">
         <label for="workerName">Worker name:</label>
         <input type="text" id="workerName" name="workerName" value="<?php echo htmlspecialchars($workerName); ?>">
@@ -137,7 +143,7 @@ if ($error) {
     </form>
     <div id="inventory">
         <h2>Inventory:</h2>
-        <p>Worker: <?php echo $workerName;?></p>
+        <p>Worker: <?php echo htmlspecialchars($workerName);?></p>
         <p>Units Milk: <?php echo $milkCount;?></p>
         <p>Units Soft Drink: <?php echo htmlspecialchars($softDrinkCount);?></p>
     </div>
